@@ -1,19 +1,21 @@
 module AlienInvasion
   class GameConfig
-    def caption
-      'Alien Invasion'
-    end
+    class << self
+      def caption
+        'Alien Invasion'
+      end
 
-    def width
-      1280 # 1920
-    end
+      def width
+        1920
+      end
 
-    def height
-      720 # 1080
-    end
+      def height
+        1080
+      end
 
-    def fullscreen
-      false
+      def fullscreen
+        true
+      end
     end
   end
 end

@@ -1,7 +1,7 @@
 module AlienInvasion
   class GameWindow < Gosu::Window
     def initialize
-      config = AlienInvasion::GameConfig.new
+      config = AlienInvasion::GameConfig
       super(config.width, config.height, fullscreen: config.fullscreen)
       self.caption = config.caption
 
