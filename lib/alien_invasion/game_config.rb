@@ -16,6 +16,11 @@ module AlienInvasion
       def fullscreen
         true
       end
+
+      def z_order(element)
+        elements = %i(background aliens)
+        elements.index(element)
+      end
     end
   end
 end
