@@ -5,7 +5,7 @@ module AlienInvasion
       super(config.width, config.height, fullscreen: config.fullscreen)
       self.caption = config.caption
 
-      @background_image = Gosu::Image.new('images/background.jpg', tileable: true)
+      @background_image = Gosu::Image.new('images/background.png', tileable: true)
 
       @ob = AlienInvasion::Aliens::Ob.new
       @ob.warp(320, 240)
