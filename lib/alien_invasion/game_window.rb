@@ -9,7 +9,7 @@ module AlienInvasion
 
       @map1 = AlienInvasion::Map.new(:map1)
       @ob = AlienInvasion::Aliens::Ob.new
-      @ob.warp(320, 240)
+      @ob.warp(*@map1.get_coordinates(:begin))
     end
 
     def update
