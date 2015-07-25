@@ -8,8 +8,7 @@ module AlienInvasion
       @background_image = Gosu::Image.new('images/background.png', tileable: true)
 
       @map1 = AlienInvasion::Map.new(:map1)
-      @ob = AlienInvasion::Aliens::Ob.new
-      @ob.warp(*@map1.get_coordinates(:begin))
+      @ob   = AlienInvasion::Aliens::Ob.new(map: @map1, speed: 1, hp: 10)
     end
 
     def update

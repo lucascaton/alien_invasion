@@ -3,16 +3,13 @@ module AlienInvasion
     class Ob
       Z_ORDER = AlienInvasion::GameConfig.z_order(:aliens)
 
-      def initialize(speed: 1, hp: 100)
-        @image = Gosu::Image.new('images/aliens/ob.png')
+      def initialize(map:, speed:, hp:)
+        @map   = map
         @speed = speed
         @hp    = hp
 
-        @x = @y = 0.0
-      end
-
-      def warp(x, y)
-        @x, @y = x, y
+        @image = Gosu::Image.new('images/aliens/ob.png')
+        @x, @y = @map.get_coordinates(:begin)
       end
 
       def move
