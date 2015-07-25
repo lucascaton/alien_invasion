@@ -7,6 +7,7 @@ module AlienInvasion
 
       @background_image = Gosu::Image.new('images/background.png', tileable: true)
 
+      @map1 = AlienInvasion::Map.new(:map1)
       @ob = AlienInvasion::Aliens::Ob.new
       @ob.warp(320, 240)
     end
@@ -19,6 +20,8 @@ module AlienInvasion
       self.caption = "#{Gosu::fps} fps" if ENV['DEVELOPMENT'] == 'true'
 
       @background_image.draw(0, 0, AlienInvasion::GameConfig.z_order(:background))
+
+      @map1.draw
       @ob.draw
     end
 
