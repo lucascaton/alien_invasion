@@ -13,6 +13,10 @@ module AlienInvasion
       @coordinates.each { |x, y, path| IMAGES[path].draw(x, y, Z_ORDER) }
     end
 
+    def get_coordinates(path_type)
+      @coordinates.find { |_, _, path| path == path_type }[0, 2]
+    end
+
     private
 
     def generate_coordinates(name)
