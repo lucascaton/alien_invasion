@@ -18,7 +18,7 @@ module AlienInvasion
     def draw
       self.caption = "#{Gosu::fps} fps" if ENV['DEVELOPMENT'] == 'true'
 
-      @background_image.draw(0, 0, 0)
+      @background_image.draw(0, 0, AlienInvasion::GameConfig.z_order(:background))
       @ob.draw
     end
 
