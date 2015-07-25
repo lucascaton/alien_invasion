@@ -1,6 +1,8 @@
 module AlienInvasion
   module Aliens
     class Ob
+      Z_ORDER = AlienInvasion::GameConfig.z_order(:aliens)
+
       def initialize(speed: 1, hp: 100)
         @image = Gosu::Image.new('images/aliens/ob.png')
         @speed = speed
@@ -19,7 +21,7 @@ module AlienInvasion
       end
 
       def draw
-        @image.draw(@x, @y, AlienInvasion::GameConfig.z_order(:aliens))
+        @image.draw(@x, @y, Z_ORDER)
       end
     end
   end
