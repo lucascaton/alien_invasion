@@ -1,7 +1,7 @@
 module AlienInvasion
   class Map
     TILE_SIZE = 85 # px
-    PATHS = { normal: '.', begin: '^', end: '$' }
+    PATHS = { normal: '|', begin: '^', end: '$' }
     IMAGES = PATHS.keys.map { |path| [path, Gosu::Image.new("images/paths/#{path}.png", tileable: true)] }.to_h
     Z_ORDER = AlienInvasion::GameConfig.z_order(:paths)
 
