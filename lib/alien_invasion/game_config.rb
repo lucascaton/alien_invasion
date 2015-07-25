@@ -14,7 +14,7 @@ module AlienInvasion
       end
 
       def fullscreen
-        true
+        ENV['DEVELOPMENT'] != 'true'
       end
 
       def z_order(element)
