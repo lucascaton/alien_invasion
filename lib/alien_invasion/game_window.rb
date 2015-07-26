@@ -13,12 +13,16 @@ module AlienInvasion
       @ob   = AlienInvasion::Aliens::Ob.new(map: @map1, speed: 3, hp: 10)
     end
 
+    def needs_cursor?
+      true
+    end
+
     def update
       @ob.move unless @ob.finished?
     end
 
     def draw
-      self.caption = "#{Gosu::fps} fps" if ENV['DEVELOPMENT'] == 'true'
+      self.caption = "#{Gosu::fps} fps - mouse #{mouse_x.round} x #{mouse_y.round}" if ENV['DEVELOPMENT'] == 'true'
 
       @background_image.draw(0, 0, Z_ORDER)
       @map1.draw
@@ -26,8 +30,12 @@ module AlienInvasion
     end
 
     def button_down(key)
-      puts "### #{key} key pressed" if ENV['DEVELOPMENT'] == 'true'
       close if key == Gosu::KbEscape
+
+      if ENV['DEVELOPMENT'] == 'true'
+        puts "### #{key} key pressed"
+        puts "### Clicked - #{mouse_x.round} x #{mouse_y.round}" if key == Gosu::MsLeft
+      end
     end
   end
 end
