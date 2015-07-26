@@ -4,7 +4,7 @@ A tower defence style game created by [Lucas Caton](http://lucascaton.com.br/) u
 
 ## Screenshots
 
-Coming soon.
+![Screenshot 1](https://raw.githubusercontent.com/lucascaton/alien_invasion/master/screenshots/1.png)
 
 ## How to install?
 
