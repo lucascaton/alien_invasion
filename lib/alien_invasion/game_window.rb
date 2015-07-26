@@ -1,5 +1,7 @@
 module AlienInvasion
   class GameWindow < Gosu::Window
+    Z_ORDER = AlienInvasion::GameConfig.z_order(:background)
+
     def initialize
       config = AlienInvasion::GameConfig
       super(config.width, config.height, fullscreen: config.fullscreen)
@@ -18,8 +20,7 @@ module AlienInvasion
     def draw
       self.caption = "#{Gosu::fps} fps" if ENV['DEVELOPMENT'] == 'true'
 
-      @background_image.draw(0, 0, AlienInvasion::GameConfig.z_order(:background))
-
+      @background_image.draw(0, 0, Z_ORDER)
       @map1.draw
       @ob.draw
     end
