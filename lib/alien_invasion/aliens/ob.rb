@@ -9,7 +9,8 @@ module AlienInvasion
         @speed = speed
         @hp    = hp
 
-        @x, @y = @map.get_coordinates(:begin)
+        @x = @map.tile(:begin)[:x]
+        @y = @map.tile(:begin)[:y]
       end
 
       def move
