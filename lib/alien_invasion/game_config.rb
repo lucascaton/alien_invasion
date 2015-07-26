@@ -18,7 +18,7 @@ module AlienInvasion
       end
 
       def z_order(element)
-        elements = %i(background paths aliens)
+        elements = %i(background map_tiles aliens)
         elements.index(element)
       end
     end

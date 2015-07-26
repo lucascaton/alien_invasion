@@ -1,9 +1,9 @@
 module AlienInvasion
   class Map
     TILE_SIZE = 85 # px
-    PATHS = { normal: '#', begin: '^', end: '$' }
-    IMAGES = PATHS.keys.map { |path| [path, Gosu::Image.new("images/paths/#{path}.png", tileable: true)] }.to_h
-    Z_ORDER = AlienInvasion::GameConfig.z_order(:paths)
+    TILES = { normal: '#', begin: '^', end: '$' }
+    IMAGES = TILES.keys.map { |tile| [tile, Gosu::Image.new("images/maps/#{tile}.png", tileable: true)] }.to_h
+    Z_ORDER = AlienInvasion::GameConfig.z_order(:map_tiles)
 
     def initialize(name)
       @tiles = generate_tiles(name)
@@ -29,7 +29,7 @@ module AlienInvasion
 
       map_file.split.map(&:chars).each_with_index do |row, row_index|
         row.each_with_index do |column, column_index|
-          next unless PATHS.values.include?(column)
+          next unless TILES.values.include?(column)
 
           x = (width_base  + (column_index * TILE_SIZE)).round
           y = (height_base + (row_index    * TILE_SIZE)).round
@@ -39,7 +39,7 @@ module AlienInvasion
           end
 
           tiles << {
-            type: PATHS.key(column),
+            type: TILES.key(column),
             column: column_index,
             row: row_index,
             x: x,
