@@ -18,7 +18,7 @@ module AlienInvasion
     end
 
     def update
-      @ob.move unless @ob.finished?
+      @ob.move
     end
 
     def draw
@@ -26,7 +26,7 @@ module AlienInvasion
 
       @background_image.draw(0, 0, Z_ORDER)
       @map1.draw
-      @ob.draw unless @ob.finished?
+      @ob.draw
     end
 
     def button_down(key)
