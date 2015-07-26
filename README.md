@@ -1,6 +1,8 @@
-# [Work in progress] Alien Invasion
+# Alien Invasion (game)
 
 A tower defence style game created by [Lucas Caton](http://lucascaton.com.br/) using Ruby and [Gosu library](https://github.com/gosu/gosu).
+
+**(Work in progress)**
 
 ## Screenshots
 
