@@ -10,11 +10,11 @@ module AlienInvasion
       @background_image = Gosu::Image.new('images/background.png', tileable: true)
 
       @map1 = AlienInvasion::Map.new(:map1)
-      @ob   = AlienInvasion::Aliens::Ob.new(map: @map1, speed: 1, hp: 10)
+      @ob   = AlienInvasion::Aliens::Ob.new(map: @map1, speed: 3, hp: 10)
     end
 
     def update
-      @ob.move
+      @ob.move unless @ob.finished?
     end
 
     def draw
@@ -22,7 +22,7 @@ module AlienInvasion
 
       @background_image.draw(0, 0, Z_ORDER)
       @map1.draw
-      @ob.draw
+      @ob.draw unless @ob.finished?
     end
 
     def button_down(key)

@@ -5,21 +5,37 @@ module AlienInvasion
       IMAGE = Gosu::Image.new('images/aliens/ob.png')
 
       def initialize(map:, speed:, hp:)
-        @map   = map
-        @speed = speed
-        @hp    = hp
+        @path     = map.path
+        @speed    = speed
+        @hp       = hp
+        @finished = false
 
-        @x = @map.tile(:begin)[:x]
-        @y = @map.tile(:begin)[:y]
+        @next_tile = @path.shift
+        @x, @y = @next_tile[:x], @next_tile[:y]
       end
 
       def move
-        @x += @speed
-        @y += @speed
+        @x += (@next_tile[:x] - @x).abs > @speed - 1 ? @speed : 1 if @next_tile[:x] > @x
+        @x -= (@next_tile[:x] - @x).abs > @speed - 1 ? @speed : 1 if @next_tile[:x] < @x
+        @y += (@next_tile[:y] - @y).abs > @speed - 1 ? @speed : 1 if @next_tile[:y] > @y
+        @y -= (@next_tile[:y] - @y).abs > @speed - 1 ? @speed : 1 if @next_tile[:y] < @y
+
+        if [@x, @y] == [@next_tile[:x], @next_tile[:y]]
+          @next_tile = @path.shift
+
+          if @next_tile.nil?
+            # score -= 1
+            @finished = true
+          end
+        end
       end
 
       def draw
         IMAGE.draw(@x, @y, Z_ORDER)
+      end
+
+      def finished?
+        @finished
       end
     end
   end
