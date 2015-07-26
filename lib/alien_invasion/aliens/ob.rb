@@ -5,7 +5,7 @@ module AlienInvasion
       IMAGE = Gosu::Image.new('images/aliens/ob.png')
 
       def initialize(map:, speed:, hp:)
-        @path  = map.path
+        @path  = map.path.dup
         @speed = speed
         @hp    = hp
         @dead  = false
